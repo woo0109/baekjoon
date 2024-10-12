@@ -12,4 +12,4 @@ for i in range(n):
         if dp[j] < dp[i] + schedule[i][1]:
             dp[j] = dp[i] + schedule[i][1]
 
-print(dp)
+print(dp[-1])
