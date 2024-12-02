@@ -9,4 +9,4 @@ while A != K:
         K -= 1
         cnt += 1
 
-print(cnt)
+print(cnt)  

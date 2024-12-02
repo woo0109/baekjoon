@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n, m, r = map(int, input().split())
 visited = [0] * (n + 1)
 graph = [[] for _ in range(n + 1)]
@@ -18,7 +21,7 @@ def bfs(graph, start):
     order += 1
     
     while queue:  
-        current = queue.pop(0)  
+        current = queue.pop(0) 
         
         for neighbor in graph[current]:  
             if visited[neighbor] == 0:  
