@@ -1,18 +1,24 @@
 import math
 
 k = int(input())
+limit = 2000000 if k > 100 else 1000 
+
+prime = [True] * (limit + 1)
+prime[0] = prime[1] = False
+
+for i in range(2, int(math.sqrt(limit)) + 1):
+    for j in range(i * i, limit+1, i):
+        prime[j] = False
+
 count = 0
-num = 2
+i = 2
 
-while count<k:
-    prime = True
-
-    for i in range(2, int(math.sqrt(num))+1):
-        if num % i == 0:
-            prime = False
-            
-    if prime:
+while True:
+    if prime[i]:
         count += 1
-    num += 1
-
-print(num-1)
+    
+    if count == k:
+        print(i)
+        break
+    
+    i += 1
