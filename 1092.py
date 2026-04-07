@@ -2,26 +2,31 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-limit = list(map(int,input().split()))
+limit = list(map(int, input().split()))
 m = int(input())
 weight = list(map(int, input().split()))
-minute = 0
 
-limit.sort(key=lambda x : -x)
-weight.sort(key=lambda x :-x)
-check = [False] * m
+limit.sort(reverse=True)
+weight.sort(reverse=True)
 
 if weight[0] > limit[0]:
     print("-1")
     exit()
 
-while weight:
+check = [False] * m
+count = 0
+minute = 0
+
+positions = [0] * n 
+
+while count < m:
     minute += 1
-
-    for l in limit:
-        for j in range(len(weight)):
-            if l >= weight[j] and check[j] != True:
-                check[j] = True
+    for i in range(n): 
+        while positions[i] < m:
+            if not check[positions[i]] and limit[i] >= weight[positions[i]]:
+                check[positions[i]] = True
+                count += 1
                 break
+            positions[i] += 1
 
-print(minute)            
+print(minute)

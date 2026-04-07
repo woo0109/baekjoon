@@ -1,7 +1,7 @@
 import math
 
 k = int(input())
-limit = 2000000 if k > 100 else 1000 
+limit = int(k * 16) if k > 10 else 200
 
 prime = [True] * (limit + 1)
 prime[0] = prime[1] = False

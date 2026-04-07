@@ -10,9 +10,9 @@ for i in range(n):
 
         origin[i] = 1 - origin[i]
 
-        if i + 1 <= n:
+        if i + 1 < n:
             origin[i+1] = 1 - origin[i+1]
-        if i + 2 <= n:
+        if i + 2 < n:
             origin[i+2] = 1 - origin[i+2]
 
 print(count)
